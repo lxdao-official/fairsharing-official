@@ -40,7 +40,7 @@ export default function Home() {
 						<br />
 						for community recognition, fair rewards, and non-custodial identity.
 					</p>
-					<button className="bg-gradient text-main mt-[20px] h-[56px] w-[180px] rounded text-base">
+					<button className="button-bg text-main mt-[20px] h-[56px] w-[180px] rounded border-2 border-[#0000] text-base">
 						Launch App
 					</button>
 				</div>

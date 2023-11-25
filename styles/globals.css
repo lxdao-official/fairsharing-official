@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button-bg {
+    background: linear-gradient(transparent, transparent) padding-box, linear-gradient(281deg, #00C9FF -0.58%, #1DE9B6 47.72%, #92FE9D 97.04%) border-box;
+}
+
+.button-bg:hover {
+    background: linear-gradient(180deg, #001E24 0%, #000811 100%) padding-box, linear-gradient(281deg, #00C9FF -0.58%, #1DE9B6 47.72%, #92FE9D 97.04%) border-box;
+    color: #fff;
+}
