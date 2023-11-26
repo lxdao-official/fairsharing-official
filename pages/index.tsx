@@ -64,13 +64,19 @@ export default function Home() {
 							<span className="gradient-text">post</span> a contribution on-chain
 						</p>
 					</div>
-					<div className="max-w-[639px]">
+					<div className="relative max-w-[639px]">
 						<Image src="/post.png" alt="post" width={639} height={501} />
+						<div className="absolute right-1/2 w-full max-w-[478px]">
+							<Image src="/arrow_1.png" alt="arrow" width={478} height={288} />
+						</div>
 					</div>
 				</div>
 				<div className="mt-[288px] flex items-center gap-[71px]">
-					<div className="max-w-[718px]">
+					<div className="relative max-w-[718px]">
 						<Image src="/contribution.png" alt="contribution" width={718} height={378} />
+						<div className="absolute left-1/3 w-full max-w-[493px]">
+							<Image src="/arrow_2.png" alt="arrow" width={493} height={292} />
+						</div>
 					</div>
 					<div className="relative top-[-46px]">
 						<Image src="/help.png" alt="help" width={56} height={56} />
@@ -89,8 +95,11 @@ export default function Home() {
 							<br />
 							with one-click to your wallet
 						</p>
+						<div className="absolute right-[-33%] top-[250px] w-full max-w-[478px]">
+							<Image src="/arrow_3.png" alt="arrow" width={478} height={289} />
+						</div>
 					</div>
-					<div className="max-w-[727px]">
+					<div className="relative max-w-[727px]">
 						<Image src="/claim.png" alt="claim" width={727} height={599} />
 					</div>
 				</div>
