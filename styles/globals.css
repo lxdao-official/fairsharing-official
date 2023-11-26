@@ -17,3 +17,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.try-wrapper {
+    background-image: url("/try_bg.png");
+    background-size: cover;
+}

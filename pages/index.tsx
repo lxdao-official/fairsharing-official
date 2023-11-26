@@ -128,6 +128,14 @@ export default function Home() {
 					})}
 				</ul>
 			</div>
+			<div className="try-wrapper mt-[102px] flex h-[360px] flex-col items-center">
+				<p className="mt-[89px] h-[131px] text-[48px] font-medium leading-[131px] text-white">
+					If you've made it this far, why not give it a try?
+				</p>
+				<button className="text-main mt-[8px] h-[56px] w-[180px] rounded border-2 border-[#fff] bg-white text-base hover:bg-transparent hover:text-white">
+					Launch App
+				</button>
+			</div>
 		</main>
 	);
 }
