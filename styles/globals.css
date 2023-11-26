@@ -10,3 +10,10 @@
     background: linear-gradient(180deg, #001E24 0%, #000811 100%) padding-box, linear-gradient(281deg, #00C9FF -0.58%, #1DE9B6 47.72%, #92FE9D 97.04%) border-box;
     color: #fff;
 }
+
+.gradient-text {
+    background: linear-gradient(284deg, #00C9FF 10.17%, #1DE9B6 33.44%, #92FE9D 93.93%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

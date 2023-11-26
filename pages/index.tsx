@@ -45,6 +45,63 @@ export default function Home() {
 					</button>
 				</div>
 			</div>
+			<div className="mt-[161px] flex flex-col items-center px-[60px]">
+				<div className="flex items-center gap-[71px]">
+					<div className="relative top-[-80px]">
+						<Image src="/on_chain.png" alt="on chain" width={56} height={56} />
+						<p className="mt-[20px] text-[48px] font-medium leading-[56px]">
+							Easy interface to
+							<br />
+							<span className="gradient-text">post</span> a contribution on-chain
+						</p>
+					</div>
+					<div className="max-w-[639px]">
+						<Image src="/post.png" alt="post" width={639} height={501} />
+					</div>
+				</div>
+				<div className="mt-[288px] flex items-center gap-[71px]">
+					<div className="max-w-[718px]">
+						<Image src="/contribution.png" alt="contribution" width={718} height={378} />
+					</div>
+					<div className="relative top-[-46px]">
+						<Image src="/help.png" alt="help" width={56} height={56} />
+						<p className="mt-[20px] text-[48px] font-medium leading-[56px]">
+							Vote, interact and reach
+							<br />
+							<span className="gradient-text">consensus</span> within the community
+						</p>
+					</div>
+				</div>
+				<div className="mt-[191px] flex items-center gap-[43px]">
+					<div className="relative top-[-16px]">
+						<Image src="/wallet.png" alt="wallet" width={56} height={56} />
+						<p className="mt-[20px] text-[48px] font-medium leading-[56px]">
+							<span className="gradient-text">Claim $tokens</span>
+							<br />
+							with one-click to your wallet
+						</p>
+					</div>
+					<div className="max-w-[727px]">
+						<Image src="/claim.png" alt="claim" width={727} height={599} />
+					</div>
+				</div>
+				<div className="mt-[184px] flex items-center gap-[185px]">
+					<div className="max-w-[564px]">
+						<Image src="/dashboard.png" alt="dashboard" width={564} height={313} />
+					</div>
+					<div className="relative top-[-6px]">
+						<Image src="/time.png" alt="time" width={56} height={56} />
+						<p className="mt-[20px] text-[48px] font-medium leading-[56px]">
+							<span className="gradient-text">Allocate</span> rewards on-chain
+							<br />
+							in a fairer way
+						</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p></p>
+			</div>
 		</main>
 	);
 }
