@@ -22,6 +22,9 @@ const config: Config = {
 			fontSize: {
 				base: '20px',
 			},
+			boxShadow: {
+				drop: '0px 2px 10px 0px rgba(100, 116, 139, 0.10);',
+			},
 		},
 	},
 	plugins: [],

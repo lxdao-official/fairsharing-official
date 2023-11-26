@@ -1,6 +1,8 @@
 import { Roboto, Lexend } from 'next/font/google';
 import Image from 'next/image';
 import { capitalizeFirstLetter } from '@/utils/utils';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const roboto = Roboto({ weight: ['400', '500'], subsets: ['latin'], display: 'swap' });
 const lexend = Lexend({
@@ -11,6 +13,13 @@ const lexend = Lexend({
 });
 
 export default function Home() {
+	const [builders, setBuilders] = useState<IBuilder[]>([]);
+	useEffect(() => {
+		axios.get<{ data: IProject }>('https://api.lxdao.io/project/012').then((res) => {
+			setBuilders(res.data.data.buidlersOnProject);
+		});
+	});
+
 	return (
 		<main className={`${roboto} ${lexend.variable} text-[16px]`}>
 			<div className="bg-black">
@@ -21,7 +30,7 @@ export default function Home() {
 					</span>
 					<ul className="flex items-center gap-8">
 						{['twitter', 'telegram'].map((item) => (
-							<li className="flex cursor-pointer items-center gap-2">
+							<li className="flex cursor-pointer items-center gap-2" key={item}>
 								<Image src={`/${item}.png`} alt={item} width={28} height={28} />
 								<span>{capitalizeFirstLetter(item)}</span>
 							</li>
@@ -99,8 +108,25 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div>
-				<p></p>
+			<div className="mt-[177px] flex flex-col items-center">
+				<Image src="/resume.png" alt="resume" width={56} height={56} />
+				<p className="text-[48px] font-medium leading-[56px]">
+					Fully own your non-custodial <span className="gradient-text">identity</span>
+				</p>
+				<ul className="mt-[60px] grid gap-[24px] sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+					{builders.map((builder) => {
+						const { name, avatar } = builder.buidler;
+						return (
+							<li
+								className="shadow-drop flex h-[291px] w-[240px] flex-col items-center rounded p-[20px]"
+								key={avatar}
+							>
+								<img src={avatar} alt={name} width={200} height={200} />
+								<span className="text-main mt-[24px] text-[14px]">{name}</span>
+							</li>
+						);
+					})}
+				</ul>
 			</div>
 		</main>
 	);
