@@ -145,6 +145,47 @@ export default function Home() {
 					Launch App
 				</button>
 			</div>
+			<div className="w-full bg-[#F1F5F9] py-[120px]">
+				<footer className="mx-auto flex max-w-[1216px] gap-[147px]">
+					<div className="flex flex-col">
+						<h6 className="text-[24px] font-semibold leading-[58px] text-black">Developer</h6>
+						<a
+							className="leading-[40px] text-[#646F7C]"
+							href="https://github.com/lxdao-official/fairsharing-frontend/"
+							target="_blank"
+						>
+							GitHub
+						</a>
+					</div>
+					<div className="flex flex-col">
+						<h6 className="text-[24px] font-semibold leading-[58px] text-black">Follow us</h6>
+						<a
+							className="leading-[40px] text-[#646F7C]"
+							href="https://github.com/lxdao-official/fairsharing-frontend/"
+							target="_blank"
+						>
+							Twitter
+						</a>
+						<a
+							className="leading-[40px] text-[#646F7C]"
+							href="https://github.com/lxdao-official/fairsharing-frontend/"
+							target="_blank"
+						>
+							Telegram
+						</a>
+					</div>
+					<div className="flex flex-col">
+						<h6 className="text-[24px] font-semibold leading-[58px] text-black">Resources</h6>
+						<a
+							className="leading-[40px] text-[#646F7C]"
+							href="https://docs.google.com/presentation/d/1RDsUksS6fVP6FVmSRyemGMnvwsedysAqa3YQgHNzXh8/edit#slide=id.g26dcc116661_2_353"
+							target="_blank"
+						>
+							Docs
+						</a>
+					</div>
+				</footer>
+			</div>
 		</main>
 	);
 }
