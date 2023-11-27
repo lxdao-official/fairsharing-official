@@ -12,6 +12,14 @@ const lexend = Lexend({
 	display: 'swap',
 });
 
+const urls: Record<string, string> = {
+	project: 'https://fairsharing.xyz/',
+	github: 'https://github.com/lxdao-official/fairsharing-frontend/',
+	twitter: 'https://twitter.com/fairsharing_xyz',
+	telegram: 'https://t.me/+KV7n26CipPQwZGZl',
+	docs: 'https://docs.google.com/presentation/d/1RDsUksS6fVP6FVmSRyemGMnvwsedysAqa3YQgHNzXh8/edit#slide=id.g26dcc116661_2_353',
+};
+
 export default function Home() {
 	const [builders, setBuilders] = useState<IBuilder[]>([]);
 	useEffect(() => {
@@ -19,6 +27,10 @@ export default function Home() {
 			setBuilders(res.data.data.buidlersOnProject);
 		});
 	});
+
+	const openUrl = (url: string) => {
+		window.open(url, '_blank');
+	};
 
 	return (
 		<main className={`${roboto} ${lexend.variable} text-[16px]`}>
@@ -30,9 +42,15 @@ export default function Home() {
 					</span>
 					<ul className="flex items-center gap-8">
 						{['twitter', 'telegram'].map((item) => (
-							<li className="flex cursor-pointer items-center gap-2" key={item}>
-								<Image src={`/${item}.png`} alt={item} width={28} height={28} />
-								<span>{capitalizeFirstLetter(item)}</span>
+							<li key={item}>
+								<a
+									href={urls[item]}
+									className="flex cursor-pointer items-center gap-2"
+									target="_blank"
+								>
+									<Image src={`/${item}.png`} alt={item} width={28} height={28} />
+									<span>{capitalizeFirstLetter(item)}</span>
+								</a>
 							</li>
 						))}
 					</ul>
@@ -49,7 +67,10 @@ export default function Home() {
 						<br />
 						for community recognition, fair rewards, and non-custodial identity.
 					</p>
-					<button className="button-bg text-main mt-[20px] h-[56px] w-[180px] rounded border-2 border-[#0000] text-base">
+					<button
+						className="button-bg mt-[20px] h-[56px] w-[180px] rounded border-2 border-[#0000] text-base text-main"
+						onClick={() => openUrl(urls.project)}
+					>
 						Launch App
 					</button>
 				</div>
@@ -127,11 +148,11 @@ export default function Home() {
 						const { name, avatar } = builder.buidler;
 						return (
 							<li
-								className="shadow-drop flex h-[291px] w-[240px] flex-col items-center rounded p-[20px]"
+								className="flex h-[291px] w-[240px] flex-col items-center rounded p-[20px] shadow-drop"
 								key={avatar}
 							>
 								<img src={avatar} alt={name} width={200} height={200} />
-								<span className="text-main mt-[24px] text-[14px]">{name}</span>
+								<span className="mt-[24px] text-[14px] text-main">{name}</span>
 							</li>
 						);
 					})}
@@ -141,7 +162,10 @@ export default function Home() {
 				<p className="mt-[89px] h-[131px] text-[48px] font-medium leading-[131px] text-white">
 					If you've made it this far, why not give it a try?
 				</p>
-				<button className="text-main mt-[8px] h-[56px] w-[180px] rounded border-2 border-[#fff] bg-white text-base hover:bg-transparent hover:text-white">
+				<button
+					className="mt-[8px] h-[56px] w-[180px] rounded border-2 border-[#fff] bg-white text-base text-main hover:bg-transparent hover:text-white"
+					onClick={() => openUrl(urls.project)}
+				>
 					Launch App
 				</button>
 			</div>
@@ -149,38 +173,22 @@ export default function Home() {
 				<footer className="mx-auto flex max-w-[1216px] gap-[147px]">
 					<div className="flex flex-col">
 						<h6 className="text-[24px] font-semibold leading-[58px] text-black">Developer</h6>
-						<a
-							className="leading-[40px] text-[#646F7C]"
-							href="https://github.com/lxdao-official/fairsharing-frontend/"
-							target="_blank"
-						>
+						<a className="leading-[40px] text-[#646F7C]" href={urls.github} target="_blank">
 							GitHub
 						</a>
 					</div>
 					<div className="flex flex-col">
 						<h6 className="text-[24px] font-semibold leading-[58px] text-black">Follow us</h6>
-						<a
-							className="leading-[40px] text-[#646F7C]"
-							href="https://github.com/lxdao-official/fairsharing-frontend/"
-							target="_blank"
-						>
+						<a className="leading-[40px] text-[#646F7C]" href={urls.twitter} target="_blank">
 							Twitter
 						</a>
-						<a
-							className="leading-[40px] text-[#646F7C]"
-							href="https://github.com/lxdao-official/fairsharing-frontend/"
-							target="_blank"
-						>
+						<a className="leading-[40px] text-[#646F7C]" href={urls.telegram} target="_blank">
 							Telegram
 						</a>
 					</div>
 					<div className="flex flex-col">
 						<h6 className="text-[24px] font-semibold leading-[58px] text-black">Resources</h6>
-						<a
-							className="leading-[40px] text-[#646F7C]"
-							href="https://docs.google.com/presentation/d/1RDsUksS6fVP6FVmSRyemGMnvwsedysAqa3YQgHNzXh8/edit#slide=id.g26dcc116661_2_353"
-							target="_blank"
-						>
+						<a className="leading-[40px] text-[#646F7C]" href={urls.docs} target="_blank">
 							Docs
 						</a>
 					</div>
