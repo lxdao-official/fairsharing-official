@@ -26,7 +26,7 @@ export default function Home() {
 		axios.get<{ data: IProject }>('https://api.lxdao.io/project/012').then((res) => {
 			setBuilders(res.data.data.buidlersOnProject);
 		});
-	});
+	}, []);
 
 	const openUrl = (url: string) => {
 		window.open(url, '_blank');
