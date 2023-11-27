@@ -160,7 +160,7 @@ export default function Home() {
 			</div>
 			<div className="try-wrapper mt-[102px] flex h-[360px] flex-col items-center">
 				<p className="mt-[89px] h-[131px] text-[48px] font-medium leading-[131px] text-white">
-					If you've made it this far, why not give it a try?
+					If you&apos;ve made it this far, why not give it a try?
 				</p>
 				<button
 					className="mt-[8px] h-[56px] w-[180px] rounded border-2 border-[#fff] bg-white text-base text-main hover:bg-transparent hover:text-white"
