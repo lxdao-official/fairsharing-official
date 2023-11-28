@@ -15,7 +15,7 @@ const lexend = Lexend({
 });
 
 const urls: Record<string, string> = {
-	project: 'https://fairsharing.xyz/',
+	project: 'https://fairsharing.xyz/list/',
 	github: 'https://github.com/lxdao-official/fairsharing-frontend/',
 	twitter: 'https://twitter.com/fairsharing_xyz',
 	telegram: 'https://t.me/+KV7n26CipPQwZGZl',
@@ -52,7 +52,7 @@ export default function Home() {
 				<header
 					className={classNames(
 						'flex h-[84px] items-center justify-between px-[90px] text-base text-white',
-						{ 'text-main': isLight, 'bg-light': isLight },
+						{ 'text-main': isLight },
 					)}
 				>
 					<span className="flex items-center gap-1">
