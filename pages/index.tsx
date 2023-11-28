@@ -1,8 +1,10 @@
 import { Roboto, Lexend } from 'next/font/google';
 import Image from 'next/image';
 import { capitalizeFirstLetter } from '@/utils/utils';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
+import { useScroll } from 'ahooks';
+import classNames from 'classnames';
 
 const roboto = Roboto({ weight: ['400', '500'], subsets: ['latin'], display: 'swap' });
 const lexend = Lexend({
@@ -21,7 +23,10 @@ const urls: Record<string, string> = {
 };
 
 export default function Home() {
+	useScroll(typeof window !== 'undefined' ? window.document : null);
 	const [builders, setBuilders] = useState<IBuilder[]>([]);
+	const ref = useRef<HTMLDivElement>(null);
+
 	useEffect(() => {
 		axios.get<{ data: IProject }>('https://api.lxdao.io/project/012').then((res) => {
 			setBuilders(res.data.data.buidlersOnProject);
@@ -32,13 +37,27 @@ export default function Home() {
 		window.open(url, '_blank');
 	};
 
-	return (
-		<main className={`${roboto} ${lexend.variable} text-[16px]`}>
-			<div className="bg-black">
-				<header className="sticky top-0 flex h-[110px] items-center justify-between px-[90px] text-base text-white">
+	const rect = ref.current?.getBoundingClientRect();
+	const isLight = !ref.current ? false : (rect?.height || 0) - Math.abs(rect?.top || 0) <= 84;
+
+	const header = useMemo(() => {
+		const iconPath = isLight ? '-light' : '';
+		return (
+			<div
+				className={classNames('fixed left-0 right-0 top-0 z-10', {
+					'bg-white': isLight,
+					'bg-none': !isLight,
+				})}
+			>
+				<header
+					className={classNames(
+						'flex h-[84px] items-center justify-between px-[90px] text-base text-white',
+						{ 'text-main': isLight, 'bg-light': isLight },
+					)}
+				>
 					<span className="flex items-center gap-1">
-						<Image src="/logo.png" alt="logo" width={64} height={64} />
-						<span className="font-lexend">FairSharing</span>
+						<Image src={`/logo${iconPath}.png`} alt="logo" width={64} height={64} />
+						<span className={classNames('font-lexend', { 'text-main': isLight })}>FairSharing</span>
 					</span>
 					<ul className="flex items-center gap-8">
 						{['twitter', 'telegram'].map((item) => (
@@ -48,13 +67,23 @@ export default function Home() {
 									className="flex cursor-pointer items-center gap-2"
 									target="_blank"
 								>
-									<Image src={`/${item}.png`} alt={item} width={28} height={28} />
-									<span>{capitalizeFirstLetter(item)}</span>
+									<Image src={`/${item}${iconPath}.png`} alt={item} width={28} height={28} />
+									<span className={classNames({ 'text-main': isLight })}>
+										{capitalizeFirstLetter(item)}
+									</span>
 								</a>
 							</li>
 						))}
 					</ul>
 				</header>
+			</div>
+		);
+	}, [isLight]);
+
+	return (
+		<main className={`${roboto} ${lexend.variable} text-[16px]`}>
+			{header}
+			<div className="bg-black pt-[84px]" ref={ref}>
 				<div className="flex flex-col items-center pb-[181px] pt-[76px] text-white">
 					<Image src="/pizza.png" alt="pizza" width={719} height={248} />
 					<h1 className="mt-[41px] text-center font-lexend text-[90px] font-medium leading-[90px]">
