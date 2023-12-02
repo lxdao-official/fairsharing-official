@@ -198,8 +198,8 @@ export default function Home() {
 					Launch App
 				</button>
 			</div>
-			<div className="w-full bg-[#F1F5F9] py-[120px]">
-				<footer className="mx-auto flex max-w-[1216px] gap-[147px]">
+			<div className="w-full bg-[#F1F5F9] py-[60px]">
+				<footer className="mx-auto flex max-w-[1216px] justify-center gap-[200px]">
 					<div className="flex flex-col">
 						<h6 className="text-[24px] font-semibold leading-[58px] text-black">Developer</h6>
 						<a className="leading-[40px] text-[#646F7C]" href={urls.github} target="_blank">
