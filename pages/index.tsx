@@ -15,7 +15,7 @@ const lexend = Lexend({
 });
 
 const urls: Record<string, string> = {
-	project: 'https://fairsharing.xyz/list/',
+	project: 'https://app.fairsharing.xyz/list/',
 	github: 'https://github.com/lxdao-official/fairsharing-frontend/',
 	twitter: 'https://twitter.com/fairsharing_xyz',
 	telegram: 'https://t.me/+KV7n26CipPQwZGZl',
