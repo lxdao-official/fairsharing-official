@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import { useScroll } from 'ahooks';
 import classNames from 'classnames';
+import { Analytics } from '@vercel/analytics/react';
 
 const roboto = Roboto({ weight: ['400', '500'], subsets: ['latin'], display: 'swap' });
 const lexend = Lexend({
@@ -82,6 +83,7 @@ export default function Home() {
 
 	return (
 		<main className={`${roboto} ${lexend.variable} text-[16px]`}>
+			<Analytics />
 			{header}
 			<div className="bg-black pt-[84px]" ref={ref}>
 				<div className="flex flex-col items-center pb-[181px] pt-[76px] text-white">
